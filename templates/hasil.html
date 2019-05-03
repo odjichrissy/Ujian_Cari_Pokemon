@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gotta Catch 'em All</title>
+</head>
+<body background='https://wallpaperaccess.com/full/302046.jpg'>
+    <center>
+    <h1 style="color:yellow">  {{name}} </h1>
+    <img src="{{picture['front_default']}}" width="150" height="150">
+    <h2 style="color:yellow"> ID: {{nomor}} -- Height: {{height}} -- Weight: {{weight}}</h2> 
+   
+    <button onclick="goBack()">Return</button>
+    <script>
+    function goBack() {
+    window.history.back();
+    }
+    </script>
+    </center>
+</body>
+</html>
