@@ -20,9 +20,11 @@ def hasil():
     pokemon = request.form['pokemon']
     url = 'https://pokeapi.co/api/v2/pokemon/' + pokemon
     data = requests.get(url)
-    
-    filedata = data.json()['forms']
+    if str(data)=='<Response [404]>':
+        return redirect('error.html')
 
+    filedata = data.json()['forms']
+    
     name = filedata[0]['name']
     name1 = name.capitalize()
     picture = data.json()['sprites']
@@ -32,9 +34,10 @@ def hasil():
 
     return render_template('hasil.html', name=name1, picture=picture, nomor=nomor, height=height, weight=weight)
 
+
 @app.errorhandler(404)
 def page_not_found(error):
-	return render_template('notfound.html')
+	return render_template('error.html')
 
 if __name__ == '__main__':
 	app.run(debug = True)
